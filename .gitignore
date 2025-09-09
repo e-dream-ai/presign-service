@@ -1,0 +1,55 @@
+# OS
+.DS_Store
+.AppleDouble
+Thumbs.db
+__MACOSX/
+
+# IDE / Editor
+.vscode/
+.idea/
+.fleet/
+.history/
+*.iml
+*.swp
+*.swo
+
+# Go build artifacts
+bin/
+build/
+dist/
+tmp/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Coverage and profiling
+coverage/
+coverage.out
+coverage.*.out
+*.coverprofile
+*.pprof
+cpu.prof
+mem.prof
+block.prof
+trace.out
+
+# Logs / PIDs
+*.log
+logs/
+*.pid
+
+.env
+.env.*
+*.env
+app.env
+!.env.example
+.envrc
+
+.docker/
+docker-data/
+pgdata/
+redis-data/
