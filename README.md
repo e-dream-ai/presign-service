@@ -20,15 +20,15 @@ go run scripts/generate-api-key.go
 
 ### Environment Variables
 
-| Variable                | Required | Default     | Description                                      |
-| ----------------------- | -------- | ----------- | ------------------------------------------------ |
-| `BUCKET_NAME`           | Yes      | -           | S3/R2 bucket name for presigning                 |
-| `API_KEY`               | Yes      | -           | API key for authentication                       |
-| `AWS_ACCESS_KEY_ID`     | Yes\*    | -           | AWS/R2 access key ID                             |
-| `AWS_SECRET_ACCESS_KEY` | Yes\*    | -           | AWS/R2 secret access key                         |
-| `AWS_ENDPOINT_URL`      | No       | -           | Custom endpoint URL (required for Cloudflare R2) |
-| `PORT`                  | No       | `8080`      | Server port                                      |
-| `AWS_REGION`            | No       | `us-east-1` | AWS/R2 region                                    |
+| Variable                | Required | Default | Description                                      |
+| ----------------------- | -------- | ------- | ------------------------------------------------ |
+| `BUCKET_NAME`           | Yes      | -       | R2 bucket name for presigning                    |
+| `API_KEY`               | Yes      | -       | API key for authentication                       |
+| `AWS_ACCESS_KEY_ID`     | Yes\*    | -       | R2 access key ID                                 |
+| `AWS_SECRET_ACCESS_KEY` | Yes\*    | -       | /R2 secret access key                            |
+| `AWS_ENDPOINT_URL`      | No       | -       | Custom endpoint URL (required for Cloudflare R2) |
+| `PORT`                  | No       | `8080`  | Server port                                      |
+| `AWS_REGION`            | No       | -       | R2 region                                        |
 
 ### Cloudflare R2 Configuration
 

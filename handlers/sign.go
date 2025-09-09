@@ -11,12 +11,12 @@ import (
 )
 
 type SignHandler struct {
-	s3Service *service.S3Service
+	storageService *service.StorageService
 }
 
-func NewSignHandler(s3Service *service.S3Service) *SignHandler {
+func NewSignHandler(storageService *service.StorageService) *SignHandler {
 	return &SignHandler{
-		s3Service: s3Service,
+		storageService: storageService,
 	}
 }
 
@@ -37,7 +37,7 @@ func (h *SignHandler) Handle(c *fiber.Ctx) error {
 	}
 
 	ctx := context.Background()
-	urls, err := h.s3Service.PresignMultipleObjects(ctx, req.Keys)
+	urls, err := h.storageService.PresignMultipleObjects(ctx, req.Keys)
 	if err != nil {
 		log.Printf("Failed to presign URLs: %v", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(models.ErrorResponse{

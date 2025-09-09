@@ -10,13 +10,12 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
-// S3Service handles S3 operations
-type S3Service struct {
+type StorageService struct {
 	client     *s3.Client
 	bucketName string
 }
 
-type S3Config struct {
+type StorageConfig struct {
 	BucketName  string
 	Region      string
 	AccessKeyID string
@@ -24,7 +23,7 @@ type S3Config struct {
 	EndpointURL string
 }
 
-func NewS3Service(cfg S3Config) (*S3Service, error) {
+func NewStorageService(cfg StorageConfig) (*StorageService, error) {
 	var awsCfg aws.Config
 	var err error
 
@@ -54,13 +53,13 @@ func NewS3Service(cfg S3Config) (*S3Service, error) {
 
 	client := s3.NewFromConfig(awsCfg, s3Options...)
 
-	return &S3Service{
+	return &StorageService{
 		client:     client,
 		bucketName: cfg.BucketName,
 	}, nil
 }
 
-func (s *S3Service) PresignGetObject(ctx context.Context, key string) (string, error) {
+func (s *StorageService) PresignGetObject(ctx context.Context, key string) (string, error) {
 	presignClient := s3.NewPresignClient(s.client)
 
 	request, err := presignClient.PresignGetObject(ctx, &s3.GetObjectInput{
@@ -77,7 +76,7 @@ func (s *S3Service) PresignGetObject(ctx context.Context, key string) (string, e
 	return request.URL, nil
 }
 
-func (s *S3Service) PresignMultipleObjects(ctx context.Context, keys []string) (map[string]string, error) {
+func (s *StorageService) PresignMultipleObjects(ctx context.Context, keys []string) (map[string]string, error) {
 	results := make(map[string]string)
 
 	for _, key := range keys {

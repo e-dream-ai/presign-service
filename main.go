@@ -21,7 +21,7 @@ func main() {
 		log.Fatalf("Failed to load configuration: %v", err)
 	}
 
-	s3Service, err := service.NewS3Service(service.S3Config{
+	s3Service, err := service.NewStorageService(service.StorageConfig{
 		BucketName:  cfg.BucketName,
 		Region:      cfg.AWSRegion,
 		AccessKeyID: cfg.AWSAccessKeyID,
