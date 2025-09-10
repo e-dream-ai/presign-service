@@ -67,7 +67,6 @@ func main() {
 
 	log.Printf("Starting presign-service on port %s", cfg.Port)
 	log.Printf("Bucket: %s", cfg.BucketName)
-	log.Printf("Health check available at: http://localhost:%s/health", cfg.Port)
 
 	if err := app.Listen(":" + cfg.Port); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
