@@ -21,6 +21,15 @@ func LoadConfig(path string) (config Config, err error) {
 
 	viper.AutomaticEnv()
 
+	// Explicitly bind environment variables
+	viper.BindEnv("bucket_name", "BUCKET_NAME")
+	viper.BindEnv("api_key", "API_KEY")
+	viper.BindEnv("port", "PORT")
+	viper.BindEnv("aws_region", "AWS_REGION")
+	viper.BindEnv("aws_access_key_id", "AWS_ACCESS_KEY_ID")
+	viper.BindEnv("aws_secret_access_key", "AWS_SECRET_ACCESS_KEY")
+	viper.BindEnv("aws_endpoint_url", "AWS_ENDPOINT_URL")
+
 	viper.SetDefault("port", "8080")
 
 	err = viper.ReadInConfig()
