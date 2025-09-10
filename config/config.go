@@ -21,9 +21,14 @@ func LoadConfig(path string) (config Config, err error) {
 
 	viper.AutomaticEnv()
 
+	viper.SetDefault("port", "8080")
+
 	err = viper.ReadInConfig()
 	if err != nil {
-		return
+		// It's okay if config file doesn't exist, we can use env vars
+		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
+			return
+		}
 	}
 
 	err = viper.Unmarshal(&config)
