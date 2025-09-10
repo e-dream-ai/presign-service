@@ -1,1 +1,1 @@
-web: presign-service-prod
+web: presign-service
