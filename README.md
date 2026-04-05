@@ -1,3 +1,6 @@
+# Deprecated!
+# Not used!
+
 # Presign Service
 
 ## Configuration
